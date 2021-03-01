@@ -11,8 +11,8 @@ function updateMap(num) {
                 // 设置标题和副标题及副标题跳转链接
                 title: {
                     text: '新冠疫情-国内累计数据',
-                    subtext: '数据来源--开课吧',
-                    sublink: 'https://www.kaikeba.com'
+                    subtext: '',
+                    sublink: ''
                 },
                 // 数据提示框
                 tooltip: {
@@ -39,7 +39,6 @@ function updateMap(num) {
                         {lt: 50, color: 'red', colorAlpha: 0.2}          // (-Infinity, 100)
                     ],
                 },
-
                 // 具体数据
                 series: [
                     {
@@ -65,8 +64,8 @@ function updateMap(num) {
                 // 设置标题和副标题及副标题跳转链接
                 title: {
                     text: '新冠疫情-国内新增数据',
-                    subtext: '数据来源--开课吧',
-                    sublink: 'https://www.kaikeba.com'
+                    subtext: '',
+                    sublink: ''
                 },
                 // 数据提示框
                 tooltip: {
@@ -78,7 +77,6 @@ function updateMap(num) {
                             return params.name + '<br/>无疫情信息';
                     }
                 },
-
                 // 视觉映射方案:
                 // visualMap默认是连续映射，我们也可以设置为分段型，对于分布范围广的数据
                 // 使用透明度来区分疫情严重情况
@@ -94,7 +92,6 @@ function updateMap(num) {
                         {lt: 1, color: 'red', colorAlpha: 0.0}          // (-Infinity, 100)
                     ],
                 },
-
                 // 具体数据
                 series: [
                     {
@@ -119,8 +116,8 @@ function updateMap(num) {
                 // 设置标题和副标题及副标题跳转链接
                 title: {
                     text: '新冠疫情-全球累计数据',
-                    subtext: '数据来源--开课吧',
-                    sublink: 'https://www.kaikeba.com'
+                    subtext: '',
+                    sublink: ''
                 },
                 // 数据提示框
                 tooltip: {
@@ -135,7 +132,6 @@ function updateMap(num) {
                 },
                 // 视觉映射方案1：,疫情颜色根据传染病疫情等级分类为5个级别：黄色-橙色-深橙色-红色-深红色
                 // 为了是视觉分布更好，可以添加更多的颜色范围，然后适当调小max的值，因为美国和其它国家相差太大
-                /**/
                 visualMap: {
                     min: 1, // 颜色映射对应的最小值，即对应下面的lightskyblue
                     max: 5000000, // 颜色映射对应的最大值，即对应下面的orangered
@@ -146,8 +142,6 @@ function updateMap(num) {
                         color: ['rgba(222,0,0,0.2)', 'rgba(160,0,0,1)'] // 颜色映射范围，最小值，过渡值，最大值
                     }
                 },
-
-
                 // 具体数据
                 series: [
                     {
@@ -180,8 +174,8 @@ function updateMap(num) {
                 // 设置标题和副标题及副标题跳转链接
                 title: {
                     text: '新冠疫情-全球新增数据',
-                    subtext: '数据来源--开课吧',
-                    sublink: 'https://www.kaikeba.com'
+                    subtext: '',
+                    sublink: ''
                 },
                 // 数据提示框
                 tooltip: {
@@ -195,7 +189,6 @@ function updateMap(num) {
                 },
                 // 视觉映射方案1：,疫情颜色根据传染病疫情等级分类为5个级别：黄色-橙色-深橙色-红色-深红色
                 // 为了是视觉分布更好，可以添加更多的颜色范围，然后适当调小max的值，因为美国和其它国家相差太大
-                /**/
                 visualMap: {
                     min: 0, // 颜色映射对应的最小值，
                     max: 20000, // 颜色映射对应的最大值
@@ -220,7 +213,7 @@ function updateMap(num) {
                             //formatter: '{b}', // b是数据名，c是数据值
                             formatter: function (params, ticket, callback) {
                                 //公布了数据 且 数据累计数据大于5万的显示国家名称
-                                if (params.data && params.data.value > 1000 || params.name == '中国') {
+                                if (params.data && params.data.value > 1000 || params.name === '中国') {
                                     return params.name;
                                 } else {
                                     return '';
